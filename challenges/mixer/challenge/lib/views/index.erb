@@ -1,0 +1,38 @@
+<h1>Elevate my privileges!</h1>
+
+<p>
+  We need to increase our access! Can you make yourself admin??
+</p>
+
+<p>
+  Note: the "signature" and "rack.session" cookies are not part of the challenge!
+</p>
+
+<div class='challenge rounded'>
+  <%= erb(:message_box, :locals => { messages: messages, errors: errors }) %>
+
+  <% if user %>
+    <p>Welcome back, <%= ERB::Util.html_escape(user['first_name']) %> <%= ERB::Util.html_escape(user['last_name']) %>!</p>
+
+    <% if user['is_admin'] == 1 %>
+      <p>And it looks like you're admin, too! Congrats! Your flag is <span class='highlight'><%= FLAG %></span></p>
+    <% else %>
+      <p>It looks like you aren't admin, though! Better work on that! Remember, is_admin must bet set to 1 (integer)! And you can safely ignore the rack.session cookie. Like actually. But that other cookie, however....</p>
+    <% end %>
+  <% else %>
+    <p>Please log in for more options!</p>
+  <% end %>
+
+  <form method='GET'>
+    <input type='hidden' name='action' value='login' />
+    <p>First name <input type='text' class='name' name='first_name', value='<%= ERB::Util.html_escape(user ? user['first_name'] : '') %>' /></p>
+    <p>Last name  <input type='text' class='name' name='last_name',  value='<%= ERB::Util.html_escape(user ? user['last_name'] : '') %>' /></p>
+    <p>is_admin? <input type='text' class='name' disabled='1' value='0' /></p>
+    <p><input type='submit' value='Log in' /></p>
+  </form>
+
+  <form method='GET'>
+    <input type='hidden' name='action' value='logout' />
+    <p><input type='submit' value='Log out' /></p>
+  </form>
+</div>

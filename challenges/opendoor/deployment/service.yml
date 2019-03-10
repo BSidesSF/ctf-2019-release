@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: opendoor
+  name: opendoor
+spec:
+  loadBalancerIP: 35.197.94.97
+  ports:
+  - port: 4141
+    protocol: TCP
+    targetPort: 4141
+  selector:
+    app: opendoor
+  type: LoadBalancer

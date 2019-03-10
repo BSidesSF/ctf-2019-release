@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Yay or Nay?</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="app_splash">The Yay or Nay Application allows you to keep track of the places you have been to.</string>
+    <string name="bulleted_list">
+        <li>Directions to use:</li>\n
+        <li>Double click to zoom </li>\n
+        <li>Click to add a Yay marker!</li>\n
+        <li>Long press to add a Nay marker!</li>
+    </string>
+</resources>

@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: straw-clutcher
+    tier: challenge
+  name: straw-clutcher
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+        seccomp.security.alpha.kubernetes.io/pod: docker/default
+      labels:
+        app: straw-clutcher
+        networkpolicy: deny_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env: []
+        image: gcr.io/bsides-sf-ctf-2019/straw-clutcher
+        name: straw-clutcher
+        ports:
+        - containerPort: 4321
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+      volumes: []

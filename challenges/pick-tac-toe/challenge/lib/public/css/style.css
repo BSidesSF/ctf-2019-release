@@ -1,0 +1,105 @@
+body {
+  width: 90%;
+  margin: 0 auto;
+  background: black;
+  color: white;
+}
+
+header {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin: auto;
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+}
+
+td {
+  width: 200px;
+  height: 200px;
+  align: middle;
+  text-align: center;
+  font-size: 10em;
+}
+
+#ul {
+  border-right: 10px white solid;
+  border-bottom: 10px white solid;
+}
+#u {
+  border-right: 10px white solid;
+  border-bottom: 10px white solid;
+  border-left: 10px white solid;
+}
+#ur {
+  border-bottom: 10px white solid;
+  border-left: 10px white solid;
+}
+#l {
+  border-right: 10px white solid;
+  border-bottom: 10px white solid;
+  border-top: 10px white solid;
+}
+#c {
+  border-right: 10px white solid;
+  border-bottom: 10px white solid;
+  border-left: 10px white solid;
+  border-top: 10px white solid;
+}
+#r {
+  border-bottom: 10px white solid;
+  border-left: 10px white solid;
+  border-top: 10px white solid;
+}
+#bl {
+  border-right: 10px white solid;
+  border-top: 10px white solid;
+}
+#b {
+  border-right: 10px white solid;
+  border-left: 10px white solid;
+  border-top: 10px white solid;
+}
+#br {
+  border-left: 10px white solid;
+  border-top: 10px white solid;
+}
+
+#reset {
+  width: 100%;
+  margin: auto;
+  text-align: center
+}
+
+#reset #button {
+  border-radius: 5px;
+  border: 5px black solid;
+  /*width: 80px;
+  height:25px; */
+  background: #f4f4f4;
+  font-size: 3.5em;
+}
+
+#error {
+  font-size: 2em;
+  text-align: center;
+  margin: auto;
+}
+
+#winner {
+  font-size: 2em;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 30px;
+}
+

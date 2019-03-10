@@ -1,0 +1,1 @@
+CTF{how_do_you_like_rust?}

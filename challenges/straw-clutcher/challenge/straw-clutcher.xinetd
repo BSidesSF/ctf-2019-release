@@ -1,0 +1,13 @@
+service straw-clutcher
+{
+    protocol       = tcp
+    disable        = no
+    port           = 4321
+    flags          = REUSE
+    socket_type    = stream
+    wait           = no
+    user           = ctf
+    server         = /usr/bin/timeout
+    server_args    = 10 /home/ctf/straw-clutcher
+    type           = UNLISTED
+}

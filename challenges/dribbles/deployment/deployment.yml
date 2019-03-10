@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: dribbles
+    tier: challenge
+  name: dribbles
+spec:
+  replicas: 3
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+        seccomp.security.alpha.kubernetes.io/pod: docker/default
+      labels:
+        app: dribbles
+        networkpolicy: deny_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env: []
+        image: gcr.io/bsides-sf-ctf-2019/dribbles
+        name: dribbles
+        ports:
+        - containerPort: 9999
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+      volumes: []

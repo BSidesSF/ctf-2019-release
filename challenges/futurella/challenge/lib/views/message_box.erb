@@ -1,0 +1,17 @@
+<div class='messagebox'>
+  <% if messages && messages.length > 0 %>
+    <div class="alert alert-info" role="alert">
+      <% messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if errors && errors.length > 0 %>
+    <div class="alert alert-warning" role="alert">
+      <% errors.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: slowfire
+  name: slowfire
+spec:
+  loadBalancerIP: 35.197.29.185
+  ports:
+  - port: 4141
+    protocol: TCP
+    targetPort: 4141
+  selector:
+    app: slowfire
+  type: LoadBalancer

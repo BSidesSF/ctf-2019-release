@@ -1,0 +1,26 @@
+{{define "body"}}
+<h2>Flag Database {{if .Register}}Register{{else}}Login{{end}}</h2>
+  {{if .Error}}
+    <div class="alert alert-danger">
+      {{.Error}}
+    </div>
+  {{end}}
+<div class="loginbox">
+  <div class='form-container'>
+  <form class="login" method="post" id="loginform"
+      action="/{{if .Register}}register{{else}}{{if .MFA}}2fa{{else}}login{{end}}{{end}}">
+    <input type="hidden" name="__pow__" value="" />
+    {{if .MFA}}
+    <input type="hidden" name="username" value="{{.Username}}" />
+    <input type="number" id="passcode" min="0" max="999999"
+      class="form-control" name="passcode" placeholder="000000">
+    {{else}}
+    <input type="text" id="username" class="form-control" name="username" placeholder="username">
+    <input type="password" id="password" class="form-control" name="password" placeholder="password">
+    {{end}}
+    <input type="submit" class="form-control"
+        value="{{if .Register}}Register{{else}}Log In{{end}}">
+  </form>
+  </div>
+</div>
+{{end}}

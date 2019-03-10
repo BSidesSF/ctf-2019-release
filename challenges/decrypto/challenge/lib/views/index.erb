@@ -1,0 +1,81 @@
+<h1>Advanced Privilege Escalation!</h1>
+
+<p>
+  We've logged into the mainframe, but we have a crappy UID! Can you set your UID to 0 instead?
+</p>
+
+<p>
+  It might interest you to know that the signature cookie is <tt>SHA256(<%=session[:secret].length%>-byte secret || data)</tt>. But I've already said too much!
+</p>
+
+<p>
+  Note: the "rack.session" cookie is not part of the challenge!
+</p>
+
+<div class='challenge rounded'>
+
+  <p>Mainframe:</p>
+
+<pre class='code' id='content'>
+</pre>
+
+<form method='GET'>
+  <input type='hidden' name='action' value='reset' />
+  <input type='submit' value='Reset encryption parameters' />
+</form>
+</div>
+
+<script type='text/javascript'>
+  var data = []
+  data.push("Welcome to the mainframe!");
+  data.push("It looks like you want to access the flag!");
+  data.push("Please present user object");
+  data.push("...scanning");
+  data.push("...scanning");
+  data.push("Scanning user object...");
+
+<% if errors.length > 0 %>
+  <% errors.each do |e| %>
+    data.push("FATAL ERROR: <%= e %>")
+  <% end %>
+<% else %>
+  <% data.each_pair() do |k, v| %>
+    data.push("...your <%= k %> value is set to <%= v %>");
+  <% end %>
+
+  <% if(data['UID'] != '0') %>
+    data.push("ERROR: ACCESS DENIED");
+    data.push("UID MUST BE '0'");
+  <% else %>
+    data.push("FLAG VALUE: <span class='highlight'><%= FLAG %></span></p>");
+  <% end %>
+<% end %>
+
+  var current = data.shift();
+  function t() {
+    return Math.random() * 40 + 40;
+  }
+
+  function append() {
+    if(current.length == 0) {
+      document.getElementById('content').innerHTML += "\n";
+      if(data.length == 0) {
+        return;
+      }
+
+      if(Math.random() < 0.5) {
+        current = "...";
+      } else {
+        current = data.shift();
+      }
+    }
+
+    c = current[0];
+    current = current.substr(1);
+
+    document.getElementById('content').innerHTML += c;
+    setTimeout(append, t());
+  }
+
+  setTimeout(append, t());
+</script>

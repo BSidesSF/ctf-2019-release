@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /flag.txt
+Disallow: /status
+Disallow: /flag
+Disallow: /hack

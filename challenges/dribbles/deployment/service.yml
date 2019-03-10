@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: dribbles
+  name: dribbles
+spec:
+  loadBalancerIP: 35.197.118.151
+  ports:
+  - port: 9999
+    protocol: TCP
+    targetPort: 9999
+  selector:
+    app: dribbles
+  type: LoadBalancer

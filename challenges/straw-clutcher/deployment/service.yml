@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: straw-clutcher
+  name: straw-clutcher
+spec:
+  loadBalancerIP: 35.199.153.183
+  ports:
+  - port: 4321
+    protocol: TCP
+    targetPort: 4321
+  selector:
+    app: straw-clutcher
+  type: LoadBalancer

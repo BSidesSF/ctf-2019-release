@@ -1,0 +1,1 @@
+CTF{ugh_math_is_so_hard}

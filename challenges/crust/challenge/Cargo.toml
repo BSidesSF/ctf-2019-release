@@ -1,0 +1,16 @@
+[package]
+name = "crust"
+version = "1.0.0"
+authors = ["iagox86 <ron-git@skullsecurity.org>"]
+edition = "2018"
+
+[dependencies]
+base32 = "^0.4.0"
+trust-dns = "^0.15.0"
+trust-dns-resolver = "^0.10.0"
+rand = "^0.6"
+quick-error = "1.2.2"
+
+[profile.release]
+lto = true
+panic = 'abort'

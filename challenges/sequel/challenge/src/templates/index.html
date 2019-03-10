@@ -1,0 +1,16 @@
+{{define "body"}}
+<h2>Sequel Movie Database Login</h2>
+<!-- guest/guest login is enabled -->
+<div class="loginbox">
+  {{if .Error}}
+    <div class="alert alert-danger">
+      {{.Error}}
+    </div>
+  {{end}}
+  <form class="login" method="post" action="/login">
+    <input type="text" id="username" class="form-control" name="username" placeholder="username">
+    <input type="text" id="password" class="form-control" name="password" placeholder="password">
+    <input type="submit" class="form-control" value="Log In">
+  </form>
+</div>
+{{end}}

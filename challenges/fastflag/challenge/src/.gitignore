@@ -1,0 +1,3 @@
+*.o
+fastflag
+stringops_test

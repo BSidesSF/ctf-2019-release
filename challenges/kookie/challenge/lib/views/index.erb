@@ -1,0 +1,31 @@
+<h1>Can you log in?</h1>
+
+<p>
+  Log in as <tt>admin</tt>!
+</p>
+
+<p>
+  We found the account <tt>cookie</tt> / <tt>monster</tt>
+</p>
+
+<div class='challenge rounded'>
+  <%= erb(:message_box, :locals => { messages: messages, errors: errors }) %>
+
+  <% if username %>
+    <form method='GET'>
+      <input type='hidden' name='action' value='logout' />
+      <p>You're logged in as <%= username %>!</p>
+
+      <p><input type='submit' value='Log out!' /></p>
+    </form>
+  <% else %>
+    <form method='GET'>
+      <input type='hidden' name='action' value='login' />
+      <p>Enter your password below!</p>
+
+      <p>Username: <input type='text' class='name' name='username' /></p>
+      <p>Password: <input type='text' name='password' /></p>
+      <p><input type='submit' value='Log in!' /></p>
+    </form>
+  <% end %>
+</div>

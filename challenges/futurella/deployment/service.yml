@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: futurella
+  name: futurella
+spec:
+  ports:
+  - port: 6789
+    protocol: TCP
+    targetPort: 6789
+  selector:
+    app: futurella
+  type: NodePort

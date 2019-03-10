@@ -1,0 +1,8 @@
+<% if entry == ' ' && playable %>
+    <form id='form_<%=location%>' method='POST' action='/move'>
+      <input type='hidden' name='move' value='<%=location%>'>
+      <td id='<%=location%>' onClick='$("#form_<%=location%>").submit()'><%=entry%></td>
+    </form>
+<% else %>
+      <td id='<%=location%>'><%=entry%></td>
+<% end %>

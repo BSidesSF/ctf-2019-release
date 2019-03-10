@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: runit
+    tier: challenge
+  name: runit
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+        seccomp.security.alpha.kubernetes.io/pod: docker/default
+      labels:
+        app: runit
+        networkpolicy: deny_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env: []
+        image: gcr.io/bsides-sf-ctf-2019/runit
+        name: runit
+        ports:
+        - containerPort: 5252
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+      volumes: []

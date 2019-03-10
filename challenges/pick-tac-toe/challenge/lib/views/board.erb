@@ -1,0 +1,17 @@
+<table id="board">
+  <tr>
+<%= erb(:cell, :locals => {playable: playable, entry: board[0], location: 'ul'}) %>
+<%= erb(:cell, :locals => {playable: playable, entry: board[1], location: 'u'})  %>
+<%= erb(:cell, :locals => {playable: playable, entry: board[2], location: 'ur'}) %>
+  </tr>
+  <tr>
+<%= erb(:cell, :locals => {playable: playable, entry: board[3], location: 'l'})  %>
+<%= erb(:cell, :locals => {playable: playable, entry: board[4], location: 'c'})  %>
+<%= erb(:cell, :locals => {playable: playable, entry: board[5], location: 'r'})  %>
+  </tr>
+  <tr>
+<%= erb(:cell, :locals => {playable: playable, entry: board[6], location: 'bl'}) %>
+<%= erb(:cell, :locals => {playable: playable, entry: board[7], location: 'b'})  %>
+<%= erb(:cell, :locals => {playable: playable, entry: board[8], location: 'br'}) %>
+  </tr>
+</table>

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: runit
+  name: runit
+spec:
+  loadBalancerIP: 35.185.217.197
+  ports:
+  - port: 5252
+    protocol: TCP
+    targetPort: 5252
+  selector:
+    app: runit
+  type: LoadBalancer

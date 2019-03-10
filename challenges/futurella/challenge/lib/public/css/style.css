@@ -1,0 +1,144 @@
+@font-face {
+  font-family: 'alienese';
+  src: url('/fonts/alienese.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('/fonts/alienese.ttf')  format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+body {
+  width: 90%;
+  margin: 0 auto;
+  background: black;
+  color: white;
+}
+
+header {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.logo-row {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+}
+
+content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: block;
+}
+
+footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #b5b5b5;
+}
+
+.copyright {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.completed {
+  color: green;
+  font-weight: bold;
+}
+
+.answer {
+  background-color: #006000;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.challenge {
+  background-color: #c59d5d;
+  color: black;
+  padding: 20px;
+  margin: 20px 100px 20px 100px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4em;
+  word-wrap: break-word;
+  font-family: alienese;
+  background-image: url("/images/parchment.jpg");
+  background-color: #f5dd9d;
+
+}
+
+.challenge textarea {
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-family: monospace;
+  color: white;
+  background-color: #002b36;
+  padding: 5px;
+}
+
+.code {
+  white-space: pre-wrap;
+  font-family: monospace;
+  color: white;
+  background-color: #002b36;
+  padding: 5px;
+  text-align: left;
+  padding: 20px;
+}
+
+tt {
+  font-family: monospace;
+  color: #839496;
+  background-color: #002b36;
+  padding: 5px;
+}
+
+.highlight {
+  font-family: monospace;
+  color: #c00000;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.messagebox p {
+  margin: 0;
+}
+
+.spoiler {
+  color: #404040;
+  background-color: #404040;
+}
+
+.spoiler a {
+  color: #404040;
+  background-color: #404040;
+  pointer-events: none;
+}
+
+.spoiler a:hover {
+  color: #404040;
+  background-color: #404040;
+  pointer-events: none;
+}
+
+.hint {
+}

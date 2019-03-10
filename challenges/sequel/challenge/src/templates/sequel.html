@@ -1,0 +1,24 @@
+{{define "body"}}
+<h2>Sequel Movie Database</h2>
+<div class="sequels-container">
+  <table class="sequels table">
+    <thead>
+      <tr>
+        <th>Movie</th>
+        <th>Rating</th>
+        <th>Private Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{$username := .Username}}
+      {{range .Reviews}}
+        <tr>
+          <td class='name'>{{.Name}}</td>
+          <td class='star-rating'>{{range .RatingSlice}}<i class='em em-star'></i>{{end}}</td>
+          <td class='note'>{{if .Note.Note}}{{.Note.Note}}{{else}}No note for {{$username}}{{end}}</td>
+        </tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+{{end}}

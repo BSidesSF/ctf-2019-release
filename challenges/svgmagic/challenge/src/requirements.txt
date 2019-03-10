@@ -1,0 +1,3 @@
+flask
+cairosvg
+cairocffi==0.9.0

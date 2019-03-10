@@ -1,0 +1,20 @@
+{{define "body"}}
+  <h2>Enable 2FA</h2>
+
+  {{if .Message}}
+    <div class='alert alert-success'>{{.Message}}</div>
+  {{end}}
+
+  <div id='setupMFA' data-username='{{.Username}}'>
+    <div id='qrcode'></div>
+    <div id='secret'></div>
+    <div id='secretUri'></div>
+  </div>
+
+  {{if not .Enrolled}}
+    <form method='post' class='form'>
+      <input type='hidden' name='enable' value='enable'>
+      <input class='form-control' type='submit' value='Enable' name='enableBtn'>
+    </form>
+  {{end}}
+{{end}}

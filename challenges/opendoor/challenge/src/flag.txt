@@ -1,0 +1,1 @@
+CTF{psk_doesnt_mean_with_the_world}

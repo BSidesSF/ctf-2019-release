@@ -1,0 +1,11 @@
+{{define "body"}}
+<h2>Flag Server</h2>
+<div class='container form-container'>
+  <form method='post'>
+    <input type='text' name='flag' value='{{.Flag}}' class='form-control'
+      {{if .Readonly}}disabled{{end}} placeholder='Your flag'>
+    <input type='submit' value='Save' class='form-control'
+      {{if .Readonly}}disabled{{end}}>
+  </form>
+</div>
+{{end}}

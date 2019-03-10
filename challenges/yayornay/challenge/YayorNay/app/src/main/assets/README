@@ -1,0 +1,16 @@
+v 1.0
+- Added short press, Yay support
+- Fix stability issues
+
+v 1.1
+- Added long press, Nay support
+- Add labels
+
+v 1.2
+- Populate from DB
+- Save to DB
+
+To-do
+- Fix stability issues
+- Bug fixes
+- Implement datewise view

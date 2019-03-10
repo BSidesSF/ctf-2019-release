@@ -1,0 +1,80 @@
+<h1>Reset my password!</h1>
+
+<p>
+  We found the mainframe! It's right below! The problem is, we can't log in. You
+  are an intrepid hacker that can help, right?
+</p>
+
+<p>
+  Fortunately, we found their RNG code on a printout in the dumpster. Sorry it's
+  in Pascal!
+</p>
+
+<pre class='code'>
+  function msrand: cardinal;
+  const
+    a = 214013;
+    c = 2531011;
+    m = 2147483648;
+  begin
+    x2 := (a * x2 + c) mod m;
+    msrand := x2 div 65536;
+  end;
+</pre>
+
+<p>
+  I guess they must be fans of <a href='https://aldelaro5.wordpress.com/2018/09/09/controlling-luck-in-video-games-an-explanation-of-the-rng-manipulation-on-pokemon-colosseum-and-xd/'>Pokemon</a>
+or something.
+</p>
+
+<p>
+  We don't really know how it's seeded, but we do know they generate password
+  resets one byte at a time (12 bytes total) - <tt>rand() % 0xFF</tt> - and they
+  don't change the seed in between.
+</p>
+
+<p>
+  We think that's enough. Can you crack the mainframe?
+</p>
+
+<p>
+  Note: the "signature" and "rack.session" cookies are not part of the challenge!
+</p>
+
+<div class='challenge rounded'>
+  <%= erb(:message_box, :locals => { completed: completed, messages: messages, errors: errors }) %>
+
+  <form method='GET'>
+    <input type='hidden' name='action' value='reset_me' />
+
+    <p>
+      Click the button below to "email" yourself a new password. Do this as many
+      times as you like, we understand that passwords are hard to remember!
+    </p>
+
+    <p>
+      <input type='submit' value='Reset my password!' />
+    </p>
+  </form>
+
+  <hr />
+
+  <form method='GET'>
+    <input type='hidden' name='action' value='reset_root' />
+    <p>
+      Click the button below to reset root's password.
+    </p>
+
+    <p>
+      <input type='submit' value="Reset root's password!" />
+    </p>
+  </form>
+
+  <form method='GET'>
+    <input type='hidden' name='action' value='login' />
+    <p>If you're ready to log in, enter your password below!</p>
+    <p>Username: <input type='text' class='name' disabled='1' value='root' /></p>
+    <p>Password: <input type='text' name='password' /></p>
+    <p><input type='submit' value='Log in!' /></p>
+  </form>
+</div>

@@ -1,0 +1,6 @@
+<h1>Congratulations, you win!</h1>
+
+<div id='winner'>Your flag: <%= flag %></div>
+
+<%= erb(:board, :locals => {playable: false, board: board}) %>
+<%= erb(:reset) %>

@@ -1,0 +1,48 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: flagsrv
+    tier: challenge
+  name: flagsrv
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+        seccomp.security.alpha.kubernetes.io/pod: docker/default
+      labels:
+        app: flagsrv
+        networkpolicy: allow_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env:
+        - name: MYSQL_DB
+          value: flagsrv:kingOfDB@tcp(127.0.0.1)/flagsrv
+        image: gcr.io/bsides-sf-ctf-2019/flagsrv
+        name: flagsrv
+        ports:
+        - containerPort: 8081
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+      - command:
+        - /cloud_sql_proxy
+        - -instances=bsides-sf-ctf-2019:us-west1:flagsrv=tcp:3306
+        - -credential_file=/secrets/cloudsql/credentials.json
+        image: gcr.io/cloudsql-docker/gce-proxy:1.11
+        name: cloudsql-proxy
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 2
+        volumeMounts:
+        - mountPath: /secrets/cloudsql
+          name: flagsrv-cloudsql-credentials
+          readOnly: true
+      volumes:
+      - name: flagsrv-cloudsql-credentials
+        secret:
+          secretName: flagsrv-cloudsql-credentials

@@ -1,0 +1,3 @@
+There are multiple ways to solve this challenge
+1) Run the app set a breakpoint right before the key string is used and dump the key
+2) Decompile find the different parts of the key and decode them. There are four parts - one is base64 encoded, two is Char array in JNI, three is ROT13 in jni and four is base32 encoded. 

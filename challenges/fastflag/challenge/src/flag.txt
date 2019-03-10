@@ -1,0 +1,1 @@
+ Your flag is CTF{binary_search_7}
